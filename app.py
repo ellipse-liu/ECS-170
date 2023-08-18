@@ -8,8 +8,8 @@ import yfinance as yf
 from pyESN import ESN
 import matplotlib.pyplot as plt
 
-def grab_data(symbol, start_date, end_date):
-    stock_data = yf.download(symbol, start=start_date, end=end_date, interval='1d' ,progress=False)
+def grab_data(symbol, start_date, end_date, intervals):
+    stock_data = yf.download(symbol, start=start_date, end=end_date, interval=intervals ,progress=False)
     data = stock_data["Close"].values
     return data
     
@@ -65,7 +65,7 @@ def main():
         st.write(f"Predicting for stock symbol: {stock_symbol}")
         st.write(f"Start date: {start_date}")
         st.write(f"End date: {end_date}")
-        data = grab_data(stock_symbol, start_date, end_date)
+        data = grab_data(stock_symbol, start_date, end_date, '1d')
         prediction = future_pred(data, 500, 1.2, .005, 5)
         st.write(prediction)
         # You can call your prediction function and display the results here
