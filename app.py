@@ -65,7 +65,7 @@ def main():
         st.write(f"Predicting for stock symbol: {stock_symbol}")
         st.write(f"Start date: {start_date}")
         st.write(f"End date: {end_date}")
-        data = grab_data(symbol, start_date, end_date)
+        data = grab_data(stock_symbol, start_date, end_date)
         prediction = run_echo(data, 500, 1.2, .005, 5)
         st.write(prediction)
         # You can call your prediction function and display the results here
