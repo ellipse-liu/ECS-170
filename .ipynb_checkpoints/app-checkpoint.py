@@ -47,7 +47,7 @@ def future_pred(data, reservoir_size=500, sr=1.2, n=0.005, window=5):
           noise = n)
     pred_training = esn.fit(np.ones(100),data[-100:])
     prediction = esn.predict(np.ones(window))
-    return prediction[0].reshape(-1)
+    return prediction.reshape(-1)
     
 def main():
     st.title("Stock Price Prediction App")
