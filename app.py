@@ -16,7 +16,7 @@ def MSE(prediction, actual):
     return np.mean(np.power(np.subtract(np.array(prediction),actual),2))
 
 
-def run_echo(reservoir_size=500, sr, n, window, data):
+def run_echo(data, reservoir_size=500, sr=1.2, n=0.005, window=5):
     esn = ESN(n_inputs = 1,
           n_outputs = 1,
           n_reservoir = reservoir_size,
@@ -65,7 +65,7 @@ def main():
         st.write(f"Start date: {start_date}")
         st.write(f"End date: {end_date}")
         data = grab_data(symbol, start_date, end_date)
-        prediction = run_echo(500, 1.2, .005, 5, data)
+        prediction = run_echo(data, 500, 1.2, .005, 5)
         st.write(prediction)
         # You can call your prediction function and display the results here
 
