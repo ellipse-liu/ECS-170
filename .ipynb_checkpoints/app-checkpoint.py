@@ -36,7 +36,7 @@ def run_echo(data, reservoir_size=500, sr=1.2, n=0.005, window=5):
     
     return (mse, current_set)
 
-def future_pred(reservoir_size=500, sr, n, window,data):
+def future_pred(data, reservoir_size=500, sr=1.2, n=0.005, window=5):
     esn = ESN(n_inputs = 1,
           n_outputs = 1,
           n_reservoir = reservoir_size,
