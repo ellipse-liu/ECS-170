@@ -45,7 +45,7 @@ def future_pred(data, reservoir_size=500, sr=1.2, n=0.005, window=5):
           random_state=23,
           spectral_radius=sr,
           noise = n)
-    pred_training = esn.fit(np.ones(100),data[-100:-1])
+    pred_training = esn.fit(np.ones(100),data[-100:])
     prediction = esn.predict(np.ones(window))
     return prediction[0].reshape(-1)
     
