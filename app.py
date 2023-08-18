@@ -9,7 +9,7 @@ from pyESN import ESN
 import matplotlib.pyplot as plt
 
 def grab_data(symbol, start_date, end_date):
-    stock_data = yf.download(stock_symbol, start=start_date, end=end_date, interval='1d' ,progress=False)
+    stock_data = yf.download(symbol, start=start_date, end=end_date, interval='1d' ,progress=False)
     data = stock_data["Close"].values
     return data
     
