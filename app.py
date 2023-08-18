@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 def grab_data(symbol, start_date, end_date):
     stock_data = yf.download(stock_symbol, start=start_date, end=end_date, interval='1d' ,progress=False)
-    amazon = stock_data["Close"].values
+    data = stock_data["Close"].values
+    return data
     
 def MSE(prediction, actual):
     return np.mean(np.power(np.subtract(np.array(prediction),actual),2))
