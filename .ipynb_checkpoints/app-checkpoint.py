@@ -33,7 +33,7 @@ def run_echo(data, reservoir_size=500, sr=1.2, n=0.005, window=5):
         prediction = esn.predict(np.ones(window))
         current_set.append(prediction[0])
     current_set = np.reshape(np.array(current_set),(-1,100))
-    mse = MSE(current_set, amazon[trainlen:trainlen+100])
+    mse = MSE(current_set, data[trainlen:trainlen+100])
     
     return (mse, current_set)
 
@@ -66,7 +66,7 @@ def main():
         st.write(f"Start date: {start_date}")
         st.write(f"End date: {end_date}")
         data = grab_data(stock_symbol, start_date, end_date)
-        prediction = run_echo(data, 500, 1.2, .005, 5)
+        prediction = future_pred(data, 500, 1.2, .005, 5)
         st.write(prediction)
         # You can call your prediction function and display the results here
 
